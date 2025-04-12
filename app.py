@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify, render_template
 import spacy
+import spacy.cli
+spacy.cli.download("en_core_web_sm") 
 from spacy.matcher import Matcher
 import re
 import os
