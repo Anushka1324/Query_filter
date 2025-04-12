@@ -1,0 +1,63 @@
+/* Whole screen background */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #e472ab; /* Dark pink */
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Container with pink background */
+  .container {
+    background-color: #ffc0cb; /* Light pink */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  /* Input styling */
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #c9567c; /* Pink button */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #d4739a;
+  }
+  
+  /* Result box */
+  pre {
+    background-color: #ffe6ee;
+    padding: 15px;
+    border-radius: 6px;
+    white-space: pre-line; /* Allows wrapping with \n */
+    text-align: left;       /* Left align text */
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  
+  

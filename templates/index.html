@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Query Parser</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Enter your Query</h2>
+    <input type="text" id="queryInput" placeholder="e.g. Top-rated girls PG with Wifi under 6000">
+    <button onclick="submitQuery()">Submit</button>
+
+    <h3>Result:</h3>
+    <pre id="resultOutput"></pre>
+  </div>
+
+  <script>
+    async function submitQuery() {
+      const query = document.getElementById('queryInput').value;
+  
+      const response = await fetch('/process', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ query: query })
+      });
+  
+      const data = await response.json();
+  
+      // Build result as plain text
+      let result = '';
+      result += 'Type: ' +(data.reason || 'Not specified')+'\n';
+      result += 'Gender: ' + (data.gender || 'Not specified') + '\n';
+      result += 'Additional Requirements: ' + (data.filters.length > 0 ? data.filters.join(', ') : 'None') + '\n';
+      result += 'Price: ' + (data.price ? '₹' + data.price : 'Not specified') + '\n';
+      result += 'Location: ' + (data.location || 'Not specified');
+      
+  
+      document.getElementById('resultOutput').innerText = result;
+    }
+  </script>
+  
+  
+</body>
+</html>
